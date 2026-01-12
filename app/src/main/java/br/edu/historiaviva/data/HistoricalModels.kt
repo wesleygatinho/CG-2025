@@ -23,6 +23,8 @@ data class HistoricalCharacter(
     val timeline: List<TimelineEvent>,
     val funFacts: List<String>,
     val galleryImageUrls: List<String>,
-    val modelAssetFileLocation: String
+    val modelAssetFileLocation: String,
+    val modelUrl: String? = null,
+    val arScaleToUnits: Float = 1.4f,
+    val arCenterOriginY: Float = -0.5f
 )
-

@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.edu.historiaviva.ui.screens.ArRoute
+import br.edu.historiaviva.ui.screens.ArDemoRoute
 import br.edu.historiaviva.ui.screens.DetailRoute
 import br.edu.historiaviva.ui.screens.GalleryRoute
 import br.edu.historiaviva.ui.screens.WelcomeRoute
@@ -38,6 +39,15 @@ fun App(modifier: Modifier = Modifier) {
         composable(Routes.Ar) { backStackEntry ->
             val characterId = backStackEntry.arguments?.getString("id")
             ArRoute(
+                characterId = characterId,
+                onBack = { navController.popBackStack() },
+                onOpenInfo = { id -> navController.navigate(Routes.detail(id)) },
+                onOpenDemo = { id -> navController.navigate(Routes.arDemo(id)) }
+            )
+        }
+        composable(Routes.ArDemo) { backStackEntry ->
+            val characterId = backStackEntry.arguments?.getString("id")
+            ArDemoRoute(
                 characterId = characterId,
                 onBack = { navController.popBackStack() },
                 onOpenInfo = { id -> navController.navigate(Routes.detail(id)) }

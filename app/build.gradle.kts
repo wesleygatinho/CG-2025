@@ -14,6 +14,11 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "0.1"
+
+        ndk {
+            abiFilters.add("arm64-v8a")
+            abiFilters.add("x86_64")
+        }
     }
 
     buildFeatures {
@@ -55,4 +60,11 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     implementation("io.github.sceneview:arsceneview:2.3.1")
+    implementation("io.github.sceneview:sceneview:2.3.1")
+
+    val cameraXVersion = "1.4.2"
+    implementation("androidx.camera:camera-core:$cameraXVersion")
+    implementation("androidx.camera:camera-camera2:$cameraXVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraXVersion")
+    implementation("androidx.camera:camera-view:$cameraXVersion")
 }
